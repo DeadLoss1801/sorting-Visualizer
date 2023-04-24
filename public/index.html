@@ -30,7 +30,13 @@
   <body>
     <h1>Sorting Visualizer</h1>
     <div class="nav">
-      <button class="new-array btn btn-outline-success">new array</button>
+      <div class="nav2">
+        <button class="new-array btn btn-outline-success">new array</button>
+        <label htmlfor="size">Size</label>
+        <input id="size" type="range" min="20" max="120" step="1" value="60" />
+        <label htmlfor="speed">Speed</label>
+        <input id="speed" type="range" min="40" max="100" step="1" value="60" />
+      </div>
       <div class="algos">
         <button class="Bubble btn btn-outline-info">Bubble sort</button>
         <button class="Insertion btn btn-outline-info">Insertion sort</button>

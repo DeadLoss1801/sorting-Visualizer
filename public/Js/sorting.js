@@ -12,11 +12,16 @@ let area = document.getElementsByClassName('content')[0];
 console.log(area);
 let arr = [];
 
+
+
 new_array.addEventListener('click', () => {
+    let size = document.getElementById('size');
+    size = size.value;
+    console.log(size);
     area.innerHTML = '';
     arr = [];
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < size; i++) {
         arr.push(Math.floor(Math.random() * 101))
 
         let d = document.createElement('div');
@@ -50,7 +55,24 @@ bubble.addEventListener('click', async () => {
 
 
 
+async function swapping(j) {
+    let speed = document.getElementById('speed');
+    speed = speed.value;
 
+
+    speed = (120 - speed) * 10
+
+    let el1 = document.getElementsByClassName(`bar_${j}`)[0];
+    let el2 = document.getElementsByClassName(`bar_${j + 1}`)[0];
+    swap(el1, el2);
+    el1.style.background = "red";
+    el2.style.background = "red";
+    await new Promise(resolve => setTimeout(() => {
+        resolve()
+    }, speed));
+    el1.style.background = "rgb(184, 184, 3)";
+    el2.style.background = "rgb(184, 184, 3)";
+}
 
 
 
@@ -80,16 +102,10 @@ async function bblSort(arr) {
                 arr[j + 1] = arr[j];
                 arr[j] = temp;
 
+                await swapping(j);
 
-                let el1 = document.getElementsByClassName(`bar_${j}`)[0];
-                let el2 = document.getElementsByClassName(`bar_${j + 1}`)[0];
-                swap(el1, el2);
-                el1.style.background = "red";
-                el2.style.background = "red";
-                await new Promise(resolve => setTimeout(() => { resolve(), delay(2) }));
-                el1.style.background = "rgb(184, 184, 3)";
-                el2.style.background = "rgb(184, 184, 3)";
             }
         }
     }
 }
+
