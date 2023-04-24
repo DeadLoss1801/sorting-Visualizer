@@ -1,3 +1,6 @@
+
+console.log('sorting.js');
+import { bblSort } from "./bubble.js";
 let new_array = document.getElementsByClassName('new-array')[0];
 
 let bubble = document.getElementsByClassName('Bubble')[0];
@@ -28,6 +31,7 @@ new_array.addEventListener('click', () => {
 
         d.className = `bars bar_${i}`
         d.style.height = `${arr[i] / 4}rem`;
+        d.style.width = `${500 / size}px`
 
         area.appendChild(d)
     }
@@ -54,58 +58,20 @@ bubble.addEventListener('click', async () => {
 
 
 
+// async function bblSort(arr) {
 
-async function swapping(j) {
-    let speed = document.getElementById('speed');
-    speed = speed.value;
+//     for (var i = 0; i < arr.length; i++) {
+//         for (var j = 0; j < (arr.length - i - 1); j++) {
 
+//             if (arr[j] > arr[j + 1]) {
+//                 let temp = arr[j + 1];
+//                 arr[j + 1] = arr[j];
+//                 arr[j] = temp;
 
-    speed = (120 - speed) * 10
+//                 await swapping(j);
 
-    let el1 = document.getElementsByClassName(`bar_${j}`)[0];
-    let el2 = document.getElementsByClassName(`bar_${j + 1}`)[0];
-    swap(el1, el2);
-    el1.style.background = "red";
-    el2.style.background = "red";
-    await new Promise(resolve => setTimeout(() => {
-        resolve()
-    }, speed));
-    el1.style.background = "rgb(184, 184, 3)";
-    el2.style.background = "rgb(184, 184, 3)";
-}
-
-
-
-function swap(el1, el2) {
-
-    const style1 = window.getComputedStyle(el1);
-    const style2 = window.getComputedStyle(el2);
-
-    // console.log(style1);
-    const transform1 = style1.getPropertyValue("height");
-    const transform2 = style2.getPropertyValue("height");
-    console.log(typeof (transform1));
-
-    el1.style.height = transform2;
-    el2.style.height = transform1;
-    console.log('done');
-
-}
-
-async function bblSort(arr) {
-
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = 0; j < (arr.length - i - 1); j++) {
-
-            if (arr[j] > arr[j + 1]) {
-                let temp = arr[j + 1];
-                arr[j + 1] = arr[j];
-                arr[j] = temp;
-
-                await swapping(j);
-
-            }
-        }
-    }
-}
+//             }
+//         }
+//     }
+// }
 
