@@ -12,7 +12,7 @@ async function bblSort(arr) {
                 arr[j + 1] = arr[j];
                 arr[j] = temp;
 
-                await swapping(j);
+                await swapping(j, j + 1);
 
             }
         }

@@ -1,7 +1,7 @@
 
 
 
-async function swapping(j) {
+async function swapping(i, j) {
     let speed = document.getElementById('speed');
     speed = speed.value;
 
@@ -9,7 +9,7 @@ async function swapping(j) {
     speed = (120 - speed) * 10;
 
     let el1 = document.getElementsByClassName(`bar_${j}`)[0];
-    let el2 = document.getElementsByClassName(`bar_${j + 1}`)[0];
+    let el2 = document.getElementsByClassName(`bar_${i}`)[0];
     swap(el1, el2);
     el1.style.background = "red";
     el2.style.background = "red";

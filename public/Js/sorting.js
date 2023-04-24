@@ -1,10 +1,15 @@
 
-console.log('sorting.js');
+// console.log('sorting.js');
 import { bblSort } from "./bubble.js";
+import { insertionSort } from "./insertion.js";
+
+
+
+
 let new_array = document.getElementsByClassName('new-array')[0];
 
 let bubble = document.getElementsByClassName('Bubble')[0];
-// let insertion = document.getElementsByClassName('Insertion')[0];
+let insertion = document.getElementsByClassName('Insertion')[0];
 // let selection = document.getElementsByClassName('Selection')[0];
 // let merge = document.getElementsByClassName("Merge")[0];
 // let quick = document.getElementsByClassName('Quick')[0];
@@ -44,6 +49,9 @@ bubble.addEventListener('click', async () => {
     await bblSort(arr);
 })
 
+insertion.addEventListener('click', async () => {
+    await insertionSort(arr);
+})
 
 
 
@@ -52,26 +60,4 @@ bubble.addEventListener('click', async () => {
 
 
 
-
-
-
-
-
-
-// async function bblSort(arr) {
-
-//     for (var i = 0; i < arr.length; i++) {
-//         for (var j = 0; j < (arr.length - i - 1); j++) {
-
-//             if (arr[j] > arr[j + 1]) {
-//                 let temp = arr[j + 1];
-//                 arr[j + 1] = arr[j];
-//                 arr[j] = temp;
-
-//                 await swapping(j);
-
-//             }
-//         }
-//     }
-// }
 
